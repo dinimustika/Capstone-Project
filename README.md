@@ -8,13 +8,28 @@ Website ini akan dibangun menggunakan gabungan dari Node.js dan TensorFlow.js
 
 The directory contains web sub directories and a sub directory for hosting model and other scripts:
 
-1. 
+1. Website
 
-      |- - - 
+      |Asset/Img - contains all photos in website
 
-      |- - -
+      |Src 
+      
+      |Index.html
+      
+      |About.html
+      
+      |Service.html
+      
+2. Deployment
 
-2.
+      |app.py - contains all of deploying machine learning project (backend)
+ 
+3. Notebook
+
+      |Recommender system - notebook of machine learning model
+
+
+      
 
 
 ### BaseCode
