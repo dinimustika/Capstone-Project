@@ -10,23 +10,23 @@ The directory contains web sub directories and a sub directory for hosting model
 
 1. Website
 
-      |Asset/Img - contains all photos in website
+      | `Asset/Img` - contains all photos in website
 
-      |Src 
+      | `Src` 
       
-      |Index.html
-      
-      |About.html
-      
-      |Service.html
+            | `Index.html`
+
+            | `About.html`
+
+            | `Service.html`
       
 2. Deployment
 
-      |app.py - contains all of deploying machine learning project (backend)
+      | `app.py` - contains all of deploying machine learning project (backend)
  
 3. Notebook
 
-      |Recommender system - notebook of machine learning model
+      | `Recommender system` - notebook of machine learning model
 
 
       
@@ -39,10 +39,10 @@ The entire code will be developed using Python programming language and will be 
 ### How to run the project 🚀:
 
   1. Open the `Terminal`.
-  2. Install the env $python3 -m venv venv
-  3. Install flask $pip install Flask
-  4. python app.py
-  5. clik the localhost with ctrl+click
+  2. Install the env `$python3 -m venv venv`
+  3. Install flask `$pip install Flask`
+  4. `python app.py`
+  5. clik the `localhost` with ctrl+click
 
 
 ### Dependencies 
@@ -59,7 +59,7 @@ Will be updated later
 
 ### References 
 #### For Building machine learning model and deployment:
-1. will be updated
+1. will be updated `soon`
 2. 
 3. 
 
