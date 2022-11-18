@@ -45,7 +45,7 @@ The entire code will be developed using Python programming language and will be 
   5. clik the `localhost` with ctrl+click
 
 
-### Dependencies 
+### Dependencies ⚙:
 
 The following dependencies can be found below this :
   1. [scikit-learn](https://scikit-learn.org/)
@@ -57,7 +57,7 @@ The following dependencies can be found below this :
 ### Cosine Similirity is used for recommendation purpose using Scikit-learn library.
 Will be updated later
 
-### References 
+### References ✔:
 #### For Building machine learning model and deployment:
 1. will be updated `soon`
 2. 
