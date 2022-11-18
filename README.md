@@ -39,7 +39,10 @@ The entire code will be developed using Python programming language and will be 
 ### How to run the project 🚀:
 
   1. Open the `Terminal`.
-  2. 
+  2. Install the env $python3 -m venv venv
+  3. Install flask $pip install Flask
+  4. python app.py
+  5. clik the localhost with ctrl+click
 
 
 ### Dependencies 
@@ -47,7 +50,9 @@ The entire code will be developed using Python programming language and will be 
 The following dependencies can be found below this :
   1. [scikit-learn](https://scikit-learn.org/)
   2. [Flask](https://palletsprojects.com/p/flask/)
-  3.
+  3. [Numpy](https://numpy.org/doc/stable/)
+  4. [Pickle](https://docs.python.org/3/library/pickle.html)
+  
 
 ### Cosine Similirity is used for recommendation purpose using Scikit-learn library.
 Will be updated later
