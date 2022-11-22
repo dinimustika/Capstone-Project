@@ -10,39 +10,44 @@
     <link rel="stylesheet" href="asset/style.css">
     <link rel="stylesheet" href="./font-awesome/css/font-awesome.min.css">
     <script src="./bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css" integrity="sha256-3sPp8BkKUE7QyPSl6VfBByBroQbKxKG7tsusY2mhbVY=" crossorigin="anonymous" />
 </head>
 
 <body>
     <app-bar></app-bar>
 
     <!-- Banner -->
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
-                aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
-                aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-                aria-label="Slide 3"></button>
-        </div>
-
+    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="true">     
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="asset/img/freelance1.jpg" class="d-block w-100" alt="">
+                <img src="asset/img/banner1.png" class="d-block w-100" alt="">
+                <div class="carousel-caption bottom-left">
+                  <h1>Find the <span style="color: red; font-style: italic;">perfect freelance</span> services <br> for
+                      your business</h1>
+                </div>
             </div>
             <div class="carousel-item">
-                <img src="asset/img/freelance22.jpg" class="d-block w-100" alt="">
+                <img src="asset/img/banner2.png" class="d-block w-100" alt="">
+                <div class="carousel-caption bottom-left">
+                  <h1>Find the <span style="color: red; font-style: italic;">perfect freelance</span> services <br> for
+                      your business</h1>
+                </div>
             </div>
             <div class="carousel-item">
-                <img src="asset/img/Freelance3.jpg" class="d-block w-100" alt="">
+                <img src="asset/img/banner3.png" class="d-block w-100" alt="">
+                <div class="carousel-caption bottom-left">
+                  <h1>Find the <span style="color: red; font-style: italic;">perfect freelance</span> services <br> for
+                      your business</h1>
+                </div>
             </div>
-            <div class="bottom-left">
-                <h1>Find the <span style="color: red; font-style: italic;">perfect freelance</span> services <br> for
-                    your business</h1>
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
             </div>
-        </div>
-
-        
 
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
             data-bs-slide="prev">
@@ -55,6 +60,244 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+
+    <!-- About -->
+    <section class="about">
+        <div class="container-xxl py-5">
+            <header class="section-header text-center">
+                <h2>About</h2>
+                <h4>
+                    Integer congue accumsan arcu
+                </h4>
+            </header>
+            <div class="container">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6"">
+                        <img class="img-fluid" src="asset/img/asd.png" alt="">
+                    </div>
+                    <div class="col-lg-6" data-wow-delay="0.5s">
+                        <div class="h-100">
+                            <p>Morbi bibendum metus enim, ut lobortis ex finibus vitae. Sed metus mauris, aliquet a pharetra et, hendrerit vitae tortor. Nunc enim elit, vehicula sit amet consectetur nec, luctus nec tortor. In hac habitasse platea dictumst. Aenean cursus aliquet arcu, eget tempor velit tempor sit amet. Nunc velit dolor, sodales id dapibus tincidunt, laoreet et sem. Quisque libero quam, placerat sit amet vehicula nec, semper vitae elit.</p>
+                            <a class="btn btn-outline-light" href="">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service -->
+    <section class="services">
+      <div class="container">
+
+        <header class="section-header text-center">
+            <h2>Services</h2>
+            <h4>
+                Integer congue accumsan arcu
+            </h4>
+        </header>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="service-box blue">
+              <div class="ri-discuss-line icon">
+                <img src="asset/img/1.png" class="img-fluid" alt="">
+              </div>
+              <h3>Development & IT</h3>
+              <p>Etiam sapien ante, iaculis ac efficitur sed, condimentum a ante. Maecenas elementum orci sit amet porta viverra. Donec diam est, placerat ut arcu at, viverra interdum augue.</p>
+              <button type="button" class="btn btn-outline">Get Now</button>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="service-box blue">
+                <div class="ri-discuss-line icon">
+                  <img src="asset/img/2.png" class="img-fluid" alt="">
+                </div>
+              <h3>Design</h3>
+              <p>Etiam sapien ante, iaculis ac efficitur sed, condimentum a ante. Maecenas elementum orci sit amet porta viverra. Donec diam est, placerat ut arcu at, viverra interdum augue.</p>
+              <button type="button" class="btn btn-outline">Get Now</button>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="service-box blue">
+                <div class="ri-discuss-line icon">
+                    <img src="asset/img/3.png" class="img-fluid" alt="">
+                  </div>
+              <h3>Writing & Translating</h3>
+              <p>Etiam sapien ante, iaculis ac efficitur sed, condimentum a ante. Maecenas elementum orci sit amet porta viverra. Donec diam est, placerat ut arcu at, viverra interdum augue.</p>
+              <button type="button" class="btn btn-outline">Get Now</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Top Freelacer -->
+    <section class="topfl">
+      <div class="container">
+
+        <header class="section-header text-center">
+          <h3>Top freelancer</h3>
+          <h4>
+            Integer congue accumsan arcu
+          </h4>
+        </header>
+
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="post-box">
+              <div class="post-img"><img src="asset/img/freelance1.jpg" class="img-fluid" alt=""></div>
+              <span class="post-date text-center">Rating</span>
+              <h2 class="post-title text-center">Maecenas vehicula dolor mi</h2>
+              <button type="button" class="btn btn-outline">Detail</button>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="post-box">
+              <div class="post-img"><img src="asset/img/freelance22.jpg" class="img-fluid" alt=""></div>
+              <span class="post-date text-center">Rating</span>
+              <h2 class="post-title text-center">Maecenas vehicula dolor mi</h2>
+              <button type="button" class="btn btn-outline">Detail</button>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="post-box">
+              <div class="post-img"><img src="asset/img/freelance3.jpg" class="img-fluid" alt=""></div>
+              <span class="post-date text-center">Rating</span>
+              <h2 class="post-title text-center">Maecenas vehicula dolor mi</h2>
+              <button type="button" class="btn btn-outline">Detail</button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Team -->
+    <section class="tem">
+        <div class="container">
+            <header class="section-header text-center">
+                <h3>Meet our Team</h3>
+                <h4>
+                  Integer congue accumsan arcu
+                </h4>
+            </header>
+
+            
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+                <div class="col">
+                    <div class="team-item h-100">
+                        <div class="mb-30 position-relative d-flex align-items-center">
+                                <span class="socials d-inline-block">
+                                    <a href="#" class="zmdi zmdi-facebook"></a>
+                                    <a href="#" class="zmdi zmdi-twitter"></a>
+                                    <a href="#" class="zmdi zmdi-google"></a>
+                                    <a href="#" class="zmdi zmdi-instagram"></a>
+                                </span>
+                            <span class="img-holder d-inline-block">
+                                    <img src="asset/img/pofil.png" alt="Team">
+                                </span>
+                        </div>
+                        <div class="team-content">
+                            <h5 class="mb-2">Rafi Rachmad Ramadhan</h5>
+                            <p class="text-uppercase mb-0">Senior Developer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="team-item h-100">
+                        <div class="mb-30 position-relative d-flex align-items-center">
+                                <span class="socials d-inline-block">
+                                    <a href="#" class="zmdi zmdi-facebook"></a>
+                                    <a href="#" class="zmdi zmdi-twitter"></a>
+                                    <a href="#" class="zmdi zmdi-google"></a>
+                                    <a href="#" class="zmdi zmdi-instagram"></a>
+                                </span>
+                            <span class="img-holder d-inline-block">
+                                    <img src="asset/img/pofil.png" alt="Team">
+                                </span>
+                        </div>
+                        <div class="team-content h-100">
+                            <h5 class="mb-2">Muhammad Gatot Supiadin</h5>
+                            <p class="text-uppercase mb-0">UI/UX Designer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="team-item h-100">
+                        <div class="mb-30 position-relative d-flex align-items-center">
+                                <span class="socials d-inline-block">
+                                    <a href="#" class="zmdi zmdi-facebook"></a>
+                                    <a href="#" class="zmdi zmdi-twitter"></a>
+                                    <a href="#" class="zmdi zmdi-google"></a>
+                                    <a href="#" class="zmdi zmdi-instagram"></a>
+                                </span>
+                            <span class="img-holder d-inline-block">
+                                    <img src="asset/img/pofil.png" alt="Team">
+                                </span>
+                        </div>
+                        <div class="team-content">
+                            <h5 class="mb-2">Dini Mustika</h5>
+                            <p class="text-uppercase mb-0">CEO</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="team-item h-100">
+                        <div class="mb-30 position-relative d-flex align-items-center">
+                                <span class="socials d-inline-block">
+                                    <a href="#" class="zmdi zmdi-facebook"></a>
+                                    <a href="#" class="zmdi zmdi-twitter"></a>
+                                    <a href="#" class="zmdi zmdi-google"></a>
+                                    <a href="#" class="zmdi zmdi-instagram"></a>
+                                </span>
+                            <span class="img-holder d-inline-block">
+                                    <img src="asset/img/pofil.png" alt="Team">
+                                </span>
+                        </div>
+                        <div class="team-content">
+                            <h5 class="mb-2">Hukama shofa</h5>
+                            <p class="text-uppercase mb-0">MANAGER</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-top text-center">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <h4 class="navbar-brand">FreelanceZone<span class="dot">.</span></h4>
+                        <p>Donec vitae tellus nec tortor tempor cursus. Quisque venenatis semper massa, in malesuada libero fermentum sit amet. Vivamus bibendum finibus augue. Aenean posuere augue at mi semper luctus.</p>
+                        <div class="col-auto social-icons">
+                            <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i
+                                class="zmdi zmdi-twitter"></i></a>
+                            <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i
+                                class="zmdi zmdi-facebook"></i></a>
+                            <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i
+                                class="zmdi zmdi-youtube"></i></a>
+                            <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i
+                                class="zmdi zmdi-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p class="mb-0">Copyright Company 2022. All rights Reserved</p>
+        </div>
+    </footer>
 
     <!-- About -->
     <div class="container-fluid bg-light pt-5 pb-5">
