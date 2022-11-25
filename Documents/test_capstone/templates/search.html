@@ -44,8 +44,10 @@
   <br>
 
   <div class="container text-center">
+    {{ pagination.info }}
+    {{ pagination.links }}
     <div class="row">
-      {%for i in job%}
+      {%for i in jobs%}
       <div class="col-md-3">
         <a href="{{ url_for('detail', name=i['job_name'])}}">
           <div class="card">

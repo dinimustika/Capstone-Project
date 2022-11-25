@@ -108,9 +108,13 @@ def home():
 @app.route('/predict',methods=['POST', 'GET'])
 def predict():
     parameter = request.form.get('job_name');
-    data_job = search_job(parameter);
-    jobs = json.loads(data_job);
-    return render_template('search.html', job = jobs);
+    page = int(request.args.get('page', 1));
+    per_page = 10;
+    offset = (page - 1) * per_page;
+    data = search_job(name=parameter, offset=offset, per_page=per_page);
+    jobs = json.loads(data);
+    pagination = Pagination(page=page, per_page=per_page, total=len(jobs), css_framework='bootstrap4')
+    return render_template('search.html', jobs = jobs, page=page, per_page=per_page, pagination=pagination);
 
 
 @app.route('/predict_api',methods=['GET'])
