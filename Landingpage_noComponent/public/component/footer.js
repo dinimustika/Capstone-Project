@@ -25,8 +25,8 @@ class Footer extends HTMLElement {
                         <h4 class="navbar-brand">FreelanceZone<span class="dot">.</span></h4>
                         <p>Supporting our website, making your time easy to use it with this website only together with your freelancer</p>
                         <div class="col-auto social-icons">
-                            <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i
-                                class="zmdi zmdi-twitter"></i></a>
+                            <a class="btn btn-square btn-outline-light rounded-circle me-2" href="https://github.com/dinimustika/Capstone-Project" target="_blank"><i
+                                class="zmdi zmdi-github"></i></a>
                             <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i
                                 class="zmdi zmdi-facebook"></i></a>
                             <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i
@@ -39,7 +39,7 @@ class Footer extends HTMLElement {
             </div>
         </div>
         <div class="footer-bottom text-center">
-            <p class="mb-0">Copyright Company 2022. All rights Reserved</p>
+            <p class="mb-0">Capstone team 2022</p>
         </div>
     </footer>
     `;
