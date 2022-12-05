@@ -1,0 +1,47 @@
+{% extends "head.html" %}
+{% block content %}
+
+<style>
+  a.page-link {
+    /* position: relative; */
+    display: block;
+    align-items: center;
+    color: yellowgreen;
+  }
+  .container a {
+    font-size: 18px;
+  }
+</style>
+<br><br><br>
+
+  <div class="container text-center">
+    <div class="row">
+      {%for i in jobs%}
+      <div class="col-md-3">
+        <a href="{{ url_for('detail', name=i['job_name'])}}">
+          <div class="card">
+            <img class="card-img-top" src="https://upwork.com{{i['image-src']}}" alt="" srcset="">
+            <div class="card-body">
+              <img src="{{i['seller_image-src']}}" class="seller-image" alt="" srcset="">
+              {{i['seller_name']}} <br><br>
+              <h5 class="card-title"> {{i['job_name']}} </h5>
+              <p class="card-text">Categories: {{i['categories']}}</p>
+              <div class="row">
+                <div class="col-md-6">
+                  <i class="fa-solid fa-star" style="color: yellow;"> {{i['rating']}}</i>
+                </div>
+                <div class="col-md-6">
+                  <i class="fa-solid fa-money-bill-wave" style="color: blue;"> {{i['price']}}</i>
+                </div>
+              </div>
+            </div>
+          </div><br>
+        </a>
+      </div>
+      {%endfor%}
+    </div>
+    <br>
+      {{ pagination.info }}
+      {{ pagination.links }}
+    </div>
+{% endblock %}

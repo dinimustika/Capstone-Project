@@ -1,0 +1,59 @@
+{% extends "head.html" %}
+{% block content %}
+
+<br><br><br>
+    <br>
+    <div class="container">
+        <div class="card">
+            <div class="row">
+                {%for i in output%}
+                <div class="col-md-6">
+                    <img class="card-img-top" src="https://upwork.com{{i['image-src']}}" alt="" srcset=""> <br><br>
+                    <div class="row">
+                        <h3>Recommendations</h3><br><br>
+                        {%for i in output_2%}
+                        <div class="col-md-4">
+                            <a href="{{ url_for('detail', name=i['job_name'])}}">
+                                <div class="card">
+                                    <img class="card-img-top" src="https://upwork.com{{i['image-src']}}" alt="" srcset="">
+                                    <div class="card-body">
+                                        <img src="{{i['seller_image-src']}}" class="seller-image" alt="" srcset="">
+                                        {{i['seller_name']}} <br><br>                                        
+                                        <p>{{i['job_name']}}</p>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <i class="fa-solid fa-star" style="color: yellow;">{{i['rating']}}</i> 
+                                            </div>
+                                            <div class="col-md-6">
+                                                <i class="fa-solid fa-money-bill-wave" style="color: blue;"> {{i['price']}}</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        {%endfor%}
+                    </div>                   
+                </div>
+                <div class="col-md-6">
+                    <div class="card-body">
+                        <img src="{{i['seller_image-src']}}" class="seller-image" alt="" srcset="">
+                        {{i['seller_name']}} <br><br>
+                        <h5 class="card-title"> {{i['job_name']}} </h5>
+                        <p class="card-text">Categories: {{i['categories']}}</p>                        
+                        <p>{{i['desc']}}</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <i class="fa-solid fa-star" style="color: yellow;"> {{i['rating']}}</i>
+                            </div>
+                            <div class="col-md-6">
+                                <i class="fa-solid fa-money-bill-wave" style="color: blue;"> {{i['price']}}</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div><br>
+    {% endblock %}

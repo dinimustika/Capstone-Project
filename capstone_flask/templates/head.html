@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreelanceZone</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+            integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+            crossorigin="anonymous"></script>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css"
+            integrity="sha256-3sPp8BkKUE7QyPSl6VfBByBroQbKxKG7tsusY2mhbVY=" crossorigin="anonymous" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+            integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <style></style>
+        <script type='text/javascript' src=''></script>
+        <script type='text/javascript'
+            src='https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js'></script>
+        <script type='text/javascript'
+            src='https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js'></script>
+</head>
+
+<body>
+    <!-- Navigasi bar -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark shadow-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('home') }}">FreelanceZone.</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse text-right" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{ url_for('home') }}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('about') }}">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('home') }}">Service</a>
+                    </li>
+                </ul>
+                <form action="{{ url_for('predict')}}" method="post" class="d-flex" role="search"><br><br>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <input type="text" name="job_name" placeholder="Job Name" class="form-control"
+                                required="required" />
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-primary btn-block btn-large">Search</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </nav>
+    {% block content %}
+    {% endblock %}
+
+    <footer>
+        <div class="footer-top text-center">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <h4 class="navbar-brand">FreelanceZone<span class="dot">.</span></h4>
+                        <p>Supporting our website, making your time easy to use it with this website only together with
+                            your freelancer</p>
+                        <div class="col-auto social-icons">
+                            <a class="btn btn-square btn-outline-light rounded-circle me-2"
+                                href="https://github.com/dinimustika/Capstone-Project" target="_blank"><i
+                                    class="zmdi zmdi-github"></i></a>
+                            <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i
+                                    class="zmdi zmdi-facebook"></i></a>
+                            <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i
+                                    class="zmdi zmdi-youtube"></i></a>
+                            <a class="btn btn-square btn-outline-light rounded-circle me-2" href=""><i
+                                    class="zmdi zmdi-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <p class="mb-0">Capstone team 2022</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/reveal.js') }}"></script>
+
+</body>
+
+</html>
