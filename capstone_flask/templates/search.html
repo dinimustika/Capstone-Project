@@ -1,5 +1,16 @@
 {% extends "head.html" %}
 {% block content %}
+<style>
+  a.page-link {
+    /* position: relative; */
+    display: block;
+    align-items: center;
+    color: yellowgreen;
+  }
+  .container a {
+    font-size: 18px;
+  }
+</style>
 <br><br><br>
 
 <div class="container text-center">
@@ -21,10 +32,10 @@
             <p class="card-text">Categories: {{i['categories']}}</p>
             <div class="row">
               <div class="col-md-6">
-                <i class="fa-solid fa-star" style="color: yellow;"> {{i['rating']}}</i>
+                <i class="fa-solid fa-star" style="color: blue;"> {{i['ratings']}}</i>
               </div>
               <div class="col-md-6">
-                <i class="fa-solid fa-money-bill-wave" style="color: #D6E4E5;"> {{i['price']}}</i>
+                <i class="fa-solid fa-money-bill-wave" style="color: blue;"> {{i['price']}}</i>
               </div>
             </div>
           </div>
@@ -32,9 +43,9 @@
       </a>
     </div>
     {%endfor%}
-    <div class="container-fluid">
-      {{ pagination.links }}
-    </div>
   </div>
-</div>
+  <div class="text-center">
+    {{ pagination.links }}
+  </div>
+</div><br><br>
 {% endblock %}

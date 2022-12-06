@@ -9,13 +9,13 @@ import warnings
 import pickle
 warnings.filterwarnings("ignore")
 
-df= pd.read_excel('upworkk.xlsx')
+df= pd.read_excel('dataset.xlsx')
 df.head()
 
-df['rating'] = df['rating'].astype('str')
+df['ratings'] = df['ratings'].astype('str')
 
 df.drop(
-    labels = ['web-scraper-start-url','categories-href','ratings'],
+    labels = ['web-scraper-start-url'],
     axis = 1,
     inplace=True
 )

@@ -14,16 +14,18 @@ import json
 
 warnings.filterwarnings("ignore")
 
-df= pd.read_excel('upworkk.xlsx')
+df= pd.read_excel('dataset.xlsx')
 df.head()
 
-df['rating'] = df['rating'].astype('str')
+df['ratings'] = df['ratings'].astype('str')
 
 df.drop(
-    labels = ['web-scraper-start-url','categories-href','ratings'],
+    labels = ['web-scraper-start-url','Unnamed: 0'],
     axis = 1,
     inplace=True
 )
+
+df = df.drop_duplicates('job_name')
 
 df = df.dropna()
 
@@ -85,14 +87,19 @@ def recommend(job_name, cosine_sim = cosine_sim):
         )
     recommended_jobs_ = pd.merge(recomended_jobs, df, on="job_name")
 
-    # print(recommended_jobs_.to_json())
+    # recommended_jobs_.drop_duplicates(subset="job_name", keep=False, inplace=True)
         
     return recommended_jobs_.to_json(orient="records")
 
 def search_job(name, offset=0, per_page=10):  
   df['Indexes'] = df['job_name'].str.find(name);
   datanya = df.loc[(df.Indexes > 0)];
-  return datanya.to_json(orient="records")
+  return datanya[offset: offset + per_page].to_json(orient="records")
+
+def filter_(name, offset=0, per_page=10):  
+  df['Indexes'] = df['categories'].str.find(name);
+  x = df.loc[(df.Indexes == 0)];
+  return x[offset: offset + per_page].to_json(orient="records")
 
 app = Flask(__name__)
 app.config["SESSION_PERMANENT"] = False
@@ -113,7 +120,7 @@ def home():
 @app.route('/list_alls')
 def list_alls():
     page = int(request.args.get('page', 1));
-    per_page = 10;
+    per_page = 16;
     offset = (page - 1) * per_page;
     data = list_all(offset=offset, per_page=per_page);
     jobs = json.loads(data);
@@ -133,19 +140,19 @@ def predict():
     data_nya = search_job(name=session['job_name'], offset=offset, per_page=per_page);
     jobs = json.loads(data_nya);
     # return jobs
-    pagination = Pagination(page=pages, per_page=per_page, total=len(jobs), css_framework='bootstrap4')
+    pagination = Pagination(page=pages, per_page=per_page, total=len(data_nya), css_framework='bootstrap4')
     return render_template('search.html', jobs = jobs, page=pages, per_page=per_page, pagination=pagination);
 
 @app.route('/about')
 def about():
     return render_template('about.html');
 
-@app.route('/predict_api',methods=['GET'])
-def predict_api():
+@app.route('/services/<filter>',methods=['GET'])
+def services(filter):
     page = int(request.args.get('page', 1));
-    per_page = 10;
+    per_page = 16;
     offset = (page - 1) * per_page;
-    data = list_all(offset=offset, per_page=per_page);
+    data = filter_(filter, offset=offset, per_page=per_page);
     jobs = json.loads(data);
     pagination = Pagination(page=page, per_page=per_page, total=len(data), css_framework='bootstrap4')
     return render_template('list_all.html', jobs = jobs, page=page, per_page=per_page, pagination=pagination);

@@ -58,7 +58,17 @@
                         <a class="nav-link" href="{{ url_for('about') }}">About us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('home') }}">Service</a>
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              <span style="color: white;">Service</span>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="{{ url_for('services', filter='Development & IT')}}">Development & IT</a>
+                              <a class="dropdown-item" href="{{ url_for('services', filter='Design')}}">Design</a>
+                              <a class="dropdown-item" href="{{ url_for('services', filter='Writing & Translation')}}">Writing & Translation</a>
+                            </div>
+                          </div>
+                        <!-- <a class="nav-link" href="{{ url_for('home') }}">Service</a> -->
                     </li>
                 </ul>
                 <form action="{{ url_for('predict')}}" method="post" class="d-flex" role="search"><br><br>

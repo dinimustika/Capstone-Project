@@ -8,7 +8,7 @@
             <div class="row">
                 {%for i in output%}
                 <div class="col-md-6">
-                    <img class="card-img-top" src="https://upwork.com{{i['image-src']}}" alt="" srcset=""> <br><br>
+                    <img class="card-img-top" src="https://upwork.com{{i['image-src']}}-2" alt="" srcset=""> <br><br>
                     <div class="row">
                         <h3>Recommendations</h3><br><br>
                         {%for i in output_2%}
@@ -22,7 +22,7 @@
                                         <p>{{i['job_name']}}</p>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <i class="fa-solid fa-star" style="color: yellow;">{{i['rating']}}</i> 
+                                                <i class="fa-solid fa-star" style="color: yellow;">{{i['ratings']}}</i> 
                                             </div>
                                             <div class="col-md-6">
                                                 <i class="fa-solid fa-money-bill-wave" style="color: blue;"> {{i['price']}}</i>
@@ -44,7 +44,7 @@
                         <p>{{i['desc']}}</p>
                         <div class="row">
                             <div class="col-md-6">
-                                <i class="fa-solid fa-star" style="color: yellow;"> {{i['rating']}}</i>
+                                <i class="fa-solid fa-star" style="color: yellow;"> {{i['ratings']}}</i>
                             </div>
                             <div class="col-md-6">
                                 <i class="fa-solid fa-money-bill-wave" style="color: blue;"> {{i['price']}}</i>
