@@ -8,7 +8,7 @@ The directory contains web sub directories and a sub directory for hosting model
 
 1. `static` - contains assets of html website
 
-      | `css` - contains all photos in website
+      | `css` 
 
       | `img` 
       
