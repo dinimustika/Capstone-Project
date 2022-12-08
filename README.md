@@ -8,28 +8,28 @@ The directory contains web sub directories and a sub directory for hosting model
 
 1. `static` - contains assets of html website
 
-      | `css` 
+            | `css` 
 
-      | `img` 
+            | `img` 
       
-      | `js` 
+            | `js` 
       
       
 2. `templates` - contains all htmls website
 
-      | `about.html` 
+            | `about.html` 
       
-      | `detail.html` 
+            | `detail.html` 
       
-      | `head.html` 
+            | `head.html` 
       
-      | `index_2.html` 
+            | `index_2.html` 
       
-      | `index.html` 
+            | `index.html` 
       
-      | `list_all.html` 
+            | `list_all.html` 
       
-      | `search.html` 
+            | `search.html` 
  
 
 3. `app.py` - contains all of deploying machine learning project (backend)
