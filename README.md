@@ -1,4 +1,4 @@
-# FreelanceZone
+# FreelanceZone - Study Independent Dicoding X Kampus Merdeka by C22-165
 
 FreelanceZone is a media that bring freelancer and the customer together. build with a concept recommendation sistem with Content-Based Filtering, this website will show you recommendation of freelancer with ratings, price, and execution time.
 
@@ -42,7 +42,7 @@ The directory contains web sub directories and a sub directory for hosting model
 
 
 ### BaseCode
-The entire code will be developed using Python programming language and will be hosted by .... The analysis and model is developed using some libraries. The website will be developed using Flask as backend. 
+The whole code will be developed using Python programming language and will be hosted by Railway. The website will be developed using Flask as backend. 
 
 
 ### How to run the project 🚀:
