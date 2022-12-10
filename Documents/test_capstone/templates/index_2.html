@@ -1,0 +1,351 @@
+{% extends "head.html" %}
+{% block content %}
+
+
+<!-- Banner -->
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+    </div>
+
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{{ url_for('static', filename='img/banner1.jpg') }}" class="d-block w-100" alt="">
+        </div>
+        <div class="carousel-item">
+            <img src="{{ url_for('static', filename='img/banner2.jpg') }}" class="d-block w-100" alt="">
+        </div>
+        <div class="carousel-item">
+            <img src="{{ url_for('static', filename='img/banner3.jpg') }}" class="d-block w-100" alt="">
+        </div>
+        <div class="bottom-left p-3 pt-0 mt-0">
+            <h1>Find the <span style="font-family: gagalin; color: #F49D1A" class="fs-1 fst-italic fw-bold">perfect freelance</span> services <br> for
+                your business</h1>
+            <a href="{{ url_for('list_alls') }}" class="btn px-4 begold gagalin">
+                Get started
+            </a>
+        </div>
+    </div>
+
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+
+<!-- About -->
+
+<section class="aboutUs">
+    <div class="container-xxl py-1">
+        <div class="container">
+            <div class="row g-5 align-items-center reveal">
+                <h1 class="gagalin text-light text-center" id="service">About Us</h1>
+                <div class="col-lg-6">
+                    <div class="row g-3">
+                        <div class="col-6 text-start">
+                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="{{ url_for('static', filename='img/13.png') }}">
+                        </div>
+                        <div class="col-6 text-start">
+                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="{{ url_for('static', filename='img/14.png') }}" >
+                        </div>
+                        <div class="col-6 text-end">
+                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.5s" src="{{ url_for('static', filename='img/15.png') }}">
+                        </div>
+                        <div class="col-6 text-end">
+                            <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s" src="{{ url_for('static', filename='img/16.png') }}">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="mb-4 gagalin">Welcome to FreelanceZone.</h2>
+                    <h3 class="mt-0 text-start">Make your job easier <br> Using this </span> </h3>
+                    <div class="text-center">
+                        <a href="{{ url_for('about') }}">
+                            <button class="btn begold gagalin">Read More</button>
+                        </a>
+                    </div>
+                    <h3 class="mt-4 text-end">Find Freelancers </br> based on your content </h3>
+                </div>
+                <h3 class="gagalin text-light text-center" id="service">Find Now</h3>
+                <br>
+                <div class="swiper row">
+                    <div class="slide-content">
+                        <div class=" swiper-wrapper">
+                          {%for i in jobs%}
+                          <!-- <div class="col py-3"> -->
+                            <div class="cards card h-100 shadow reveal swiper-slide">
+                                <div class="card-image">
+                                    <img class="img" src="https://upwork.com{{i['image-src']}}">
+                                </div>
+                                <div class="card-body">
+                                  <div class="titel overflow-hidden">
+                                    <h5 class="card-title">
+                                      {{i['job_name']}}
+                                    </h5>
+                                  </div>
+                                  <a href="{{ url_for('detail', name=i['job_name'])}}" class="stretched-link"></a>
+                                </div>
+                                <div class="card-footer">
+                                  <div class="ftr">
+                                    <div class="author">
+                                        <img src="{{i['seller_image-src']}}" alt="" class="avatar img-raised"> 
+                                        <span class="sellerName">{{i['seller_name']}}</span>
+                                    </div>
+                                    <div class="stats"> 
+                                      <i class="fa-solid fa-star"> {{i['ratings']}} </i>
+                                      <i class="fa-solid fa-money-bill-wave"> {{i['price']}} </i>
+                                    </div>
+                                  </div>
+                                </div>
+                            </div>
+                          <!-- </div> -->
+                          {%endfor%}
+                        </div>
+                      </div>
+                      <div class="swiper-pagination"></div>
+                    </div>
+                    <div class="d-grid gap-2 col-6 mx-auto reveal">
+                      <a class="btn begold gagalin" href="{{ url_for('list_alls') }}">See All Jobs Now!!!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- <div class="container-fluid bg-light pt-5 pb-5 reveal">
+    <div class="container">
+        <h2 class="display-3 text-start pt-5 p-5" id="about"> Freelancezone's preview</h2>
+        <div class="row clearfix pt-5 p-5 opening">
+            <div class="col-md-6">
+                <h3 class="mt-0 text-start">Make your job easier <br> Using this <span style="color: #F49D1A;"><h3>Free Website</h3> </span> </h3>
+                <a href="{{ url_for('about') }}">
+                    <button class="btn begold">Read More</button>
+                </a>
+                <h3 class="mt-5 text-end">Find Freelancers based on your content </h3>
+                <h3 class="mt-0 text-end">Recommend the freelancer</h3><br>
+                <div class="row">
+                    {%for i in jobs%}
+                    <div class="col-md-4">
+                        <a href="{{ url_for('detail', name=i['job_name'])}}">
+                            <div class="card">
+                                <img class="card-img-top" src="https://upwork.com{{i['image-src']}}" alt="" srcset="">
+                                <div class="card-body">
+                                    <p class="text"> {{i['job_name']}} </p>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <i class="fa-solid fa-star fa-2xs" style="color: yellow;">
+                                                <p class="text">{{i['ratings']}}</p>
+                                            </i>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <i class="fa-solid fa-money-bill-wave fa-2xs" style="color: #D6E4E5;">
+                                                <p class="text">{{i['price']}}</p>
+                                            </i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a><br>
+                    </div>
+                    {%endfor%}
+                    <a class="btn begold" href="{{ url_for('list_alls') }}">See All Jobs</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <br><br><a href="{{ url_for('about') }}"><img src="{{ url_for('static', filename='img/about.jpg') }}"
+                        class="float-md-end mb-3 crop-img" width="100%" height="100%" /></a>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+
+<!-- How to use website -->
+<section class="toUse">
+    <div class="container service pt-5">
+        <div class="container text-center reveal">
+            <h1 class="gagalin text-light" id="service">How to use website</h1>
+            <p class="text-uppercase text-light">your comfy is our priority</p>
+            <div class="row pt-4 use">
+                <div class="col-md-4 pb-5">
+                    <span class="bulet"><img src="{{ url_for('static', filename='img/8.png') }}" class="bulet" alt=""
+                            width="100%"></span>
+                    <h2 class="mt-3 gagalin text-light">Finding</h2>
+                    <p class="text-light">Finding best freelancer to you</p>
+                </div>
+    
+                <div class="col-md-4 pb-5">
+                    <span class="bulet"><img src="{{ url_for('static', filename='img/7.png') }}" class="bulet"
+                            alt=""></span>
+                    <h2 class="mt-3 gagalin text-light">Recommending</h2>
+                    <p class="text-light">Recommending best freelancer to you as your content</p>
+                </div>
+    
+                <div class="col-md-4 pb-5">
+                    <span class="bulet"><img src="{{ url_for('static', filename='img/6.png') }}" class="bulet"
+                            alt=""></span>
+                    <h2 class="mt-3 gagalin text-light">Connected</h2>
+                    <p class="text-light">Here We Go!!!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- services -->
+<section class="services">
+  <div class="container reveal">
+    <header class="section-header text-center">
+        <h1 class="gagalin">Services</h1>
+        <p class="text-uppercase">let's start exploring by category</p>
+    </header>
+    <div class="row g-5">
+      <div class="col-lg-4 col-md-6">
+        <div class="service-box blue serser card">
+          <div class="ri-discuss-line icon">
+            <img src="static\img\3.png" class="img-fluid" alt="">
+          </div>
+          <h3 class="gagalin">Development & IT</h3>
+          <p>Development, Data Analysis & Testing, IT Support & Security, and Other Development & IT.</p>
+          <a href="{{ url_for('services', filter='Development & IT')}}" class="stretched-link"></a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="service-box blue serser card">
+            <div class="ri-discuss-line icon">
+              <img src="static\img\4.png" class="img-fluid" alt="">
+            </div>
+          <h3 class="gagalin">Design</h3>
+          <p>Brand Identify Design, NFT Art, Drawing & Illustration, Packaging & Merchandise Design, Digital Design, Photography & Image Editing, Building & Home Design, Infographics & Presentation Design, Print Design, Product & Game Design, and Other Design.</p>
+          <a href="{{ url_for('services', filter='Design')}}" class="stretched-link"></a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="service-box blue serser card">
+            <div class="ri-discuss-line icon">
+                <img src="static\img\5.png" class="img-fluid" alt="">
+              </div>
+          <h3 class="gagalin">Writing & Translating</h3>
+          <p>Content Writing, Translation & Localization, Professional & Business Writing, Editing & Beta Reading, Copywriting, and Other Writing & Translation</p>
+          <a href="{{ url_for('services', filter='Writing & Translation')}}" class="stretched-link"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Team -->
+<section class="tem">
+    <div class="container">
+        <header class="section-header text-center reveal">
+            <h1 class="gagalin text-light">MEET OUR TEAM</h1>
+            <p class="text-uppercase text-light">Capstone team personil</p>
+        </header>
+        
+        <div class="row row-cols-1 row-cols-xl-4 row-cols-md-2 row-cols-sm-1 g-4 tim">
+            <div class="col reveal">
+                <div class="team-item h-100">
+                    <div class="mb-30 position-relative d-flex align-items-center">
+                            <span class="socials d-inline-block">
+                                <a href="#" class="fa-brands fa-linkedin"></a>
+                                <a href="#" class="fa-brands fa-twitter"></a>
+                                <a href="#" class="fa-solid fa-envelope"></a>
+                                <a href="#" class="fa-brands fa-github"></a>
+                            </span>
+                        <span class="img-holder d-inline-block">
+                                <div>
+                                    <img src="static\img\man.png" alt="Team">
+                                </div>
+                                
+                            </span>
+                    </div>
+                    <div class="team-content">
+                        <h5 class="mb-2">Rafi Rachmad Ramadhan</h5>
+                        <p class="text-uppercase mb-0 gagalin">frontend developer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col reveal">
+                <div class="team-item h-100">
+                    <div class="mb-30 position-relative d-flex align-items-center">
+                            <span class="socials d-inline-block">
+                                <a href="#" class="fa-brands fa-linkedin"></a>
+                                <a href="#" class="fa-brands fa-twitter"></a>
+                                <a href="#" class="fa-solid fa-envelope"></a>
+                                <a href="#" class="fa-brands fa-github"></a>
+                            </span>
+                        <span class="img-holder d-inline-block">
+                                <div>
+                                    <img src="static\img\man.png" alt="Team">
+                                </div>
+                            </span>
+                    </div>
+                    <div class="team-content h-100">
+                        <h5 class="mb-2">Muhammad Gatot Supiadin</h5>
+                        <p class="text-uppercase mb-0 gagalin">UI/UX Designer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col reveal">
+                <div class="team-item h-100">
+                    <div class="mb-30 position-relative d-flex align-items-center">
+                            <span class="socials d-inline-block">
+                                <a href="#" class="fa-brands fa-linkedin"></a>
+                                <a href="#" class="fa-brands fa-twitter"></a>
+                                <a href="#" class="fa-solid fa-envelope"></a>
+                                <a href="#" class="fa-brands fa-github"></a>
+                            </span>
+                        <span class="img-holder d-inline-block">
+                                <div>
+                                    <img src="static\img\women.png" alt="Team">
+                                </div>
+                            </span>
+                    </div>
+                    <div class="team-content">
+                        <h5 class="mb-2 h-100">Dini Mustika</h5>
+                        <p class="text-uppercase mb-0 gagalin">backend developer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col reveal">
+                <div class="team-item h-100">
+                    <div class="mb-30 position-relative d-flex align-items-center">
+                            <span class="socials d-inline-block">
+                                <a href="#" class="fa-brands fa-linkedin"></a>
+                                <a href="#" class="fa-brands fa-twitter"></a>
+                                <a href="#" class="fa-solid fa-envelope"></a>
+                                <a href="#" class="fa-brands fa-github"></a>
+                            </span>
+                        <span class="img-holder d-inline-block">
+                                <div>
+                                    <img src="static\img\women.png" alt="Team">
+                                </div>
+                            </span>
+                    </div>
+                    <div class="team-content">
+                        <h5 class="mb-2">Hukama shofa</h5>
+                        <p class="text-uppercase mb-0 gagalin">designer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

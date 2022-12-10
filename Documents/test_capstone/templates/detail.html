@@ -1,80 +1,70 @@
-<!DOCTYPE html>
-<html>
-<!--From https://codepen.io/frytyler/pen/EGdtg-->
+{% extends "head.html" %}
+{% block content %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>ML API</title>
-    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>    
-</head>
-
-<body>
-    <!-- Main Input For Receiving Query to our ML -->    
-    <br>
-    <br>
-    <div class="container">
-        <div class="card">
+<br><br><br>
+    <div class="container-xxl mb-2">
+        <div class="card addPad itBlack">
             <div class="row">
                 {%for i in output%}
                 <div class="col-md-6">
-                    <img class="card-img-top" src="https://upwork.com{{i['image-src']}}" alt="" srcset=""> <br><br>
-                    <div class="row">
-                        <h3>Recommendations</h3><br><br>
-                        {%for i in output_2%}
-                        <div class="col-md-4">
-                            <a href="{{ url_for('detail', name=i['job_name'])}}">
-                                <div class="card">
-                                    <img class="card-img-top" src="https://upwork.com{{i['image-src']}}" alt="" srcset="">
-                                    <div class="card-body">
-                                        <img src="{{i['seller_image-src']}}" class="seller-image" alt="" srcset="">
-                                        {{i['seller_name']}} <br><br>                                        
-                                        <p>{{i['job_name']}}</p>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <i class="fa-solid fa-star" style="color: yellow;"></i> {{i['rating']}}
-                                            </div>
-                                            <div class="col-md-6">
-                                                {{i['price']}}
-                                            </div>
-                                        </div>
+                    <h1> {{i['job_name']}} </h1>
+                    <div class="">
+                        <img src="{{i['seller_image-src']}}" alt="" class="avatar"> 
+                        <span class="sellerName">{{i['seller_name']}}  | {{i['categories']}} | <i class="fa-solid fa-star"> {{i['ratings']}} </i> | from <i class="fa-solid fa-money-bill-wave"> {{i['price']}} </i> </span>
+                    </div> <br>
+                    <img class="card-img-top" src="https://upwork.com{{i['image-src']}}-2" alt="" srcset=""> <br><br>
+                    <h3 class="indexTitel">Recommendations</h3><br>
+                    <div class="swiper row">
+                      <div class="slide-content">
+                          <div class=" swiper-wrapper">
+                            {%for i in output_2%}
+                            <!-- <div class="col py-3"> -->
+                              <div class="cards card h-100 shadow reveal swiper-slide">
+                                  <div class="card-image">
+                                      <img class="img" src="https://upwork.com{{i['image-src']}}">
+                                  </div>
+                                  <div class="card-body">
+                                    <div class="titel overflow-hidden">
+                                      <h5 class="card-title">
+                                        {{i['job_name']}}
+                                      </h5>
                                     </div>
-                                </div>
-                            </a>
+                                    <a href="{{ url_for('detail', name=i['job_name'])}}" class="stretched-link"></a>
+                                  </div>
+                                  <div class="card-footer">
+                                    <div class="ftr">
+                                      <div class="author">
+                                          <img src="{{i['seller_image-src']}}" alt="" class="avatar img-raised"> 
+                                          <span class="sellerName">{{i['seller_name']}}</span>
+                                      </div>
+                                      <div class="stats"> 
+                                        <i class="fa-solid fa-star"> {{i['ratings']}} </i>
+                                        <i class="fa-solid fa-money-bill-wave"> {{i['price']}} </i>
+                                      </div>
+                                    </div>
+                                  </div>
+                              </div>
+                            <!-- </div> -->
+                            {%endfor%}
+                          </div>
                         </div>
-                        {%endfor%}
-                    </div>                   
+                        <div class="swiper-pagination"></div>
+                      </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card-body">
-                        <img src="{{i['seller_image-src']}}" class="seller-image" alt="" srcset="">
-                        {{i['seller_name']}} <br><br>
-                        <h5 class="card-title"> {{i['job_name']}} </h5>
-                        <p class="card-text">Categories: {{i['categories']}}</p>                        
-                        <p>{{i['desc']}}</p>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <i class="fa-solid fa-star" style="color: yellow;"> {{i['rating']}}</i>
-                            </div>
-                            <div class="col-md-6">
-                                <i class="fa-solid fa-money-bill-wave" style="color: #D6E4E5;"> {{i['price']}}</i>
-                            </div>
+                <div class="card col-md-6 itGold">
+                    <div class="card-body dekri">
+                        <h3 class="py-4 indexTitel">Work Details</h3>
+                        <p hidden id="lp">{{i['desc']}}</p>
+
+                        <div id="dekri">
+                            <script>
+                              const element = document.getElementById("lp");
+                              document.getElementById("dekri").innerHTML = `<p> ${element.innerText} </p>`;
+                            </script>                     
+                        </div>
+                        <br><br>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <a class="btn beBlack" href="{{i['name-href']}}">Here We Goo!!!</a>
                         </div>
                     </div>
                 </div>
@@ -82,7 +72,4 @@
             {%endfor%}
         </div>
     </div>
-
-</body>
-
-</html>
+    {% endblock %}
