@@ -1,6 +1,7 @@
 import numpy as np
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, session
 from flask_paginate import Pagination, get_page_args
+from flask_session import Session
 from rake_nltk import Rake   # ensure this is installed
 
 import nltk
@@ -13,22 +14,25 @@ import json
 
 warnings.filterwarnings("ignore")
 
-df= pd.read_excel('upworkk.xlsx')
+df= pd.read_excel('rafi_beli_lamborgini_berkalikali_lagi.xlsx')
 df.head()
 
-df['rating'] = df['rating'].astype('str')
+df['ratings'] = df['ratings'].astype('str')
 
 df.drop(
-    labels = ['web-scraper-start-url','categories-href','ratings'],
+    labels = ['web-scraper-start-url','Unnamed: 0'],
     axis = 1,
     inplace=True
 )
+
+df = df.drop_duplicates('job_name')
 
 df = df.dropna()
 
 df['job_name'] = df['job_name'].str.replace('[^\w\s]','')
 
 def list_all(offset=0, per_page=10):
+#   return df.to_json()
   return df[offset: offset + per_page].to_json(orient="records")
 
 def detail_job(name):
@@ -69,7 +73,7 @@ recommended_jobs_ = []
 def recommend(job_name, cosine_sim = cosine_sim):
     idx = indices[indices.isin([job_name])].index[0]
     score_series = pd.Series(cosine_sim[idx]).sort_values(ascending = False)
-    top_10_indices = list(score_series.iloc[1:4].index) 
+    top_10_indices = list(score_series.iloc[1:11].index) 
 
     if len(recommended_jobs) != 0:
         recommended_jobs.clear()
@@ -83,46 +87,73 @@ def recommend(job_name, cosine_sim = cosine_sim):
         )
     recommended_jobs_ = pd.merge(recomended_jobs, df, on="job_name")
 
-    # print(recommended_jobs_.to_json())
+    # recommended_jobs_.drop_duplicates(subset="job_name", keep=False, inplace=True)
         
     return recommended_jobs_.to_json(orient="records")
 
-def search_job(name, offset=0, per_page=10):
+def search_job(name, offset=0, per_page=10):  
   df['Indexes'] = df['job_name'].str.find(name);
-  data = df.loc[(df.Indexes > 0)];
-  return data.to_json(orient="records")
+  datanya = df.loc[(df.Indexes > 0)];
+  return datanya[offset: offset + per_page].to_json(orient="records")
+
+def filter_(name, offset=0, per_page=10):  
+  df['Indexes'] = df['categories'].str.find(name);
+  x = df.loc[(df.Indexes == 0)];
+  return x[offset: offset + per_page].to_json(orient="records")
 
 app = Flask(__name__)
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
 
 @app.route('/')
 def home():
     page = int(request.args.get('page', 1));
-    per_page = 10;
+    per_page = 5;
     offset = (page - 1) * per_page;
     data = list_all(offset=offset, per_page=per_page);
     jobs = json.loads(data);
-    pagination = Pagination(page=page, per_page=per_page, total=len(data), css_framework='bootstrap4')
-    return render_template('index.html', jobs = jobs, page=page, per_page=per_page, pagination=pagination);
+    # pagination = Pagination(page=page, per_page=per_page, offset=offset, total=len(df), css_framework='bootstrap4')
+    # return render_template('index.html', jobs = jobs, page=page, per_page=per_page, pagination=pagination);
+    return render_template('index_2.html',jobs = jobs)
 
+@app.route('/list_alls')
+def list_alls():
+    page = int(request.args.get('page', 1));
+    per_page = 20;
+    offset = (page - 1) * per_page;
+    data = list_all(offset=offset, per_page=per_page);
+    jobs = json.loads(data);
+    pagination = Pagination(page=page, per_page=per_page, offset=offset, total=len(df), css_framework='bootstrap4')
+    return render_template('index.html', jobs = jobs, page=page, per_page=per_page, pagination=pagination);    
 
 @app.route('/predict',methods=['POST', 'GET'])
 def predict():
-    parameter = request.form.get('job_name');
-    page = int(request.args.get('page', 1));
-    per_page = 10;
-    offset = (page - 1) * per_page;
-    data = search_job(name=parameter, offset=offset, per_page=per_page);
-    jobs = json.loads(data);
-    pagination = Pagination(page=page, per_page=per_page, total=len(jobs), css_framework='bootstrap4')
-    return render_template('search.html', jobs = jobs, page=page, per_page=per_page, pagination=pagination);
+    if request.method == 'POST':
+        parameter = request.form.get('job_name')
+        session['job_name'] = parameter
+    if 'parameter' in session['job_name']:
+        parameter = session['job_name']
+    pages = int(request.args.get('page', 1));
+    per_page = 20;
+    offset = (pages - 1) * per_page;
+    data_nya = search_job(name=session['job_name'], offset=offset, per_page=per_page);
+    jobs = json.loads(data_nya);
+    # return jobs
+    print(len(data_nya))
+    pagination = Pagination(page=pages, per_page=per_page, total=len(data_nya), css_framework='bootstrap4')
+    return render_template('search.html', jobs = jobs, page=pages, per_page=per_page, pagination=pagination);
 
+@app.route('/about')
+def about():
+    return render_template('about.html');
 
-@app.route('/predict_api',methods=['GET'])
-def predict_api():
+@app.route('/services/<filter>',methods=['GET'])
+def services(filter):
     page = int(request.args.get('page', 1));
-    per_page = 10;
+    per_page = 20;
     offset = (page - 1) * per_page;
-    data = list_all(offset=offset, per_page=per_page);
+    data = filter_(filter, offset=offset, per_page=per_page);
     jobs = json.loads(data);
     pagination = Pagination(page=page, per_page=per_page, total=len(data), css_framework='bootstrap4')
     return render_template('list_all.html', jobs = jobs, page=page, per_page=per_page, pagination=pagination);
