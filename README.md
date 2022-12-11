@@ -68,4 +68,13 @@ The following dependencies can be found below this :
 
 Preview website
 
-![abot](https://user-images.githubusercontent.com/73319544/202717254-221868f9-8020-466f-8f0d-a0d6dd7fc47c.png)
+Home Preview
+![1](https://user-images.githubusercontent.com/73319544/206888974-996c582e-bbcd-4db5-9d48-be0869121c41.png)
+
+
+About Preview
+![8](https://user-images.githubusercontent.com/73319544/206888984-a250bbcd-471d-4b70-81dd-78872f96730d.png)
+
+
+Detail Freelancer job
+![9](https://user-images.githubusercontent.com/73319544/206889004-cd532d95-9e06-4aaf-82e7-4ddd778bb4f2.png)
